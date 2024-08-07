@@ -1,0 +1,20 @@
+{
+  "name": "@babia/uuid-v7",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./mod.ts",
+    "./validate": "./src/validate.ts",
+    "./generate": "./src/generate.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.2"
+  },
+  "exclude": [".vscode", "docs", ".github", "README.md", "LICENSE"],
+  "tasks": {
+    "check": "deno publish --dry-run --allow-dirty",
+    "lint": "deno fmt --check && deno lint",
+    "test": "deno test --trace-leaks --parallel --clean",
+    "ok": "deno task lint && deno task test && deno task check ",
+    "doc:view": "deno doc --html --name=\"@babia/uuid-v7\" ./mod.ts"
+  }
+}
