@@ -65,15 +65,15 @@ export function generate(timestamp?: number): string {
 }
 
 // The last time the function was called
-let _lastTime: number = -Infinity;
+let _lastTime = -Infinity;
 // The sequence number (18 bits)
-let _seq: number | null = null;
+let _seq = 0;
 
 function getSeq(now: number, rand: Uint8Array): number {
-  _seq ??= ((now & 0x03) << 16) | (rand[0] << 8) | rand[1];
-
   if (now > _lastTime) {
+    _seq = ((now & 0x03) << 16) | (rand[0] << 8) | rand[1];
     _lastTime = now;
+
     return _seq;
   }
 
