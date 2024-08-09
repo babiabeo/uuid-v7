@@ -1,18 +1,32 @@
+/**
+ * Generator for
+ * {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | RFC 9562 UUID v7}.
+ *
+ * ```ts
+ * import { generate } from "@babia/uuid-v7/generate";
+ *
+ * const u1 = generate();    // Using the current timestamp
+ * const u2 = generate(123); // Using custom timestamp
+ * ```
+ *
+ * @module
+ */
+
 import { stringify } from "./_stringify.ts";
 
 /**
- * Generates an {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | UUID version 7}
+ * Generates an {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | UUID v7}
  * based on Unix timestamp.
  *
  * @param timestamp The custom timestamp to generate the UUID.
- * @returns A verion 7 UUID
+ * @returns An UUID v7.
  *
  * @example Usage
  * ```ts
  * import { generate } from "@babia/uuid-v7";
  *
  * const u1 = generate();    // Using the current timestamp
- * const u2 = generate(123); // Using the custom timestamp
+ * const u2 = generate(123); // Using custom timestamp
  * ```
  */
 export function generate(timestamp?: number): string {
@@ -50,7 +64,7 @@ export function generate(timestamp?: number): string {
   return stringify(uuid);
 }
 
-// The last time the function is called
+// The last time the function was called
 let _lastTime: number = -Infinity;
 // The sequence number (18 bits)
 let _seq: number | null = null;
