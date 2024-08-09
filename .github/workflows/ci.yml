@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  deno-test:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
@@ -32,10 +32,35 @@ jobs:
           deno-version: ${{ matrix.deno }}
 
       - name: Install packages
-        run: deno add @std/assert
+        run: deno add @cross/test @std/assert
+
+      - name: Run tests canary
+        run: deno task test
+
+  node-test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [21.x]
+        os:
+          - ubuntu-22.04
+          - windows-2022
+          - macOS-12
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+      
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+      
+      - name: Install packages
+        run: npx jsr add @cross/test @std/assert
 
       - name: Run tests
-        run: deno task test
+        run: deno task test:node
 
   lint:
     runs-on: ubuntu-22.04

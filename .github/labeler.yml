@@ -1,0 +1,19 @@
+generator:
+  - changed-files:
+    - any-glob-to-any-file: "src/generate.ts"
+
+validator:
+  - changed-files:
+    - any-glob-to-any-file: "src/validate.ts"
+
+test:
+  - changed-files:
+    - any-glob-to-any-file: "src/uuid_test.ts"
+
+uuid:
+  - changed-files:
+    - any-glob-to-any-file: "**/*.ts"
+
+workflow:
+  - changed-files:
+    - any-glob-to-any-file: .github/workflows/*

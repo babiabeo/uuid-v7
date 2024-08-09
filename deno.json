@@ -7,14 +7,17 @@
     "./generate": "./src/generate.ts"
   },
   "imports": {
+    "@cross/test": "jsr:@cross/test@^0.0.9",
     "@std/assert": "jsr:@std/assert@^1.0.2"
   },
   "exclude": [".vscode", "docs", ".github", "README.md", "LICENSE"],
   "tasks": {
-    "check": "deno publish --dry-run --allow-dirty",
-    "lint": "deno fmt --check && deno lint",
-    "test": "deno test --trace-leaks --parallel --clean",
-    "ok": "deno task lint && deno task test && deno task check ",
+    "check-slow-type": "deno publish --dry-run --allow-dirty",
+    "lint": "deno fmt --check && deno lint && deno task check-slow-type",
+    "test:deno": "deno test --trace-leaks --parallel --clean",
+    "test:node": "npx --yes tsx --test",
+    "test": "deno task test:deno && deno task test:node",
+    "ok": "deno task lint && deno task test",
     "doc:view": "deno doc --html --name=\"@babia/uuid-v7\" ./mod.ts"
   }
 }
