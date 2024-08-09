@@ -1,2 +1,9 @@
 .vscode
+
+# Deno
 deno.lock
+
+# Node
+node_modules
+.npmrc
+package-lock.json
