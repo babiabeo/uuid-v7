@@ -1,6 +1,6 @@
 {
   "name": "@babia/uuid-v7",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": {
     ".": "./mod.ts",
     "./validate": "./src/validate.ts",
