@@ -1,3 +1,17 @@
+/**
+ * Validator for
+ * {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | RFC 9562 UUID v7}.
+ *
+ * ```ts
+ * import { validate } from "@babia/uuid-v7/validate";
+ *
+ * validate("01912747-539e-7817-a728-739eee071268"); // => true
+ * validate("943bb280-732e-4ae4-a4a5-c931fc67d891"); // => false
+ * ```
+ *
+ * @module
+ */
+
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[7][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -12,10 +26,9 @@ const UUID_RE =
  * @example Usage
  * ```ts
  * import { validate } from "@babia/uuid-v7";
- * import { assert, assertFalse } from "@std/assert";
  *
- * assert(validate("01912747-539e-7817-a728-739eee071268"));
- * assertFalse(validate("943bb280-732e-4ae4-a4a5-c931fc67d891"));
+ * validate("01912747-539e-7817-a728-739eee071268"); // => true
+ * validate("943bb280-732e-4ae4-a4a5-c931fc67d891"); // => false
  * ```
  */
 export function validate(uuid: string): boolean {

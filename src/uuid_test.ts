@@ -16,7 +16,7 @@ Deno.test("Each uuid is unique", () => {
   assertNotEquals(generate(), generate());
 });
 
-Deno.test("Timestamp can be equal, but uuids cannot", () => {
+Deno.test("Timestamp can be equal but uuids cannot", () => {
   const uuids = new Set();
 
   for (let i = 0; i < 200; ++i) {
