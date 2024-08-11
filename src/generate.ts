@@ -32,7 +32,7 @@ import { stringify } from "./_stringify.ts";
 export function generate(timestamp?: number): string {
   const uuid = new Uint8Array(16);
   const tm = timestamp ?? Date.now();
-  const rand = crypto.getRandomValues(new Uint8Array(9));
+  const rand = crypto.getRandomValues(new Uint8Array(10));
   const seq = getSeq(tm, rand);
 
   // [octets 0-5]: timestamp (48 bits)
@@ -53,13 +53,13 @@ export function generate(timestamp?: number): string {
   uuid[8] = 0x80 | (seq & 0x3f);
 
   // [octets 9-15]: random (56 bits)
-  uuid[9] = rand[2];
-  uuid[10] = rand[3];
-  uuid[11] = rand[4];
-  uuid[12] = rand[5];
-  uuid[13] = rand[6];
-  uuid[14] = rand[7];
-  uuid[15] = rand[8];
+  uuid[9] = rand[0];
+  uuid[10] = rand[1];
+  uuid[11] = rand[2];
+  uuid[12] = rand[3];
+  uuid[13] = rand[4];
+  uuid[14] = rand[5];
+  uuid[15] = rand[6];
 
   return stringify(uuid);
 }
@@ -71,7 +71,7 @@ let _seq = 0;
 
 function getSeq(now: number, rand: Uint8Array): number {
   if (now > _lastTime) {
-    _seq = ((now & 0x03) << 16) | (rand[0] << 8) | rand[1];
+    _seq = ((rand[7] & 0x03) << 16) | (rand[8] << 8) | rand[9];
     _lastTime = now;
 
     return _seq;
