@@ -1,7 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "@cross/test": "npm:@jsr/cross__test@^0.0.9",
-    "@std/assert": "npm:@jsr/std__assert@^1.0.2"
-  }
-}

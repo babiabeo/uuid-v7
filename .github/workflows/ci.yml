@@ -32,10 +32,10 @@ jobs:
           deno-version: ${{ matrix.deno }}
 
       - name: Install packages
-        run: deno add @cross/test @std/assert
+        run: deno install
 
       - name: Run tests canary
-        run: deno task test
+        run: deno task test:deno
 
   node-test:
     runs-on: ${{ matrix.os }}
@@ -58,6 +58,9 @@ jobs:
       
       - name: Install packages
         run: npx jsr add @cross/test @std/assert
+
+      - name: Add package.json
+        run: "echo '{ \"type\": \"module\" }' > package.json"
 
       - name: Run tests
         run: deno task test:node
