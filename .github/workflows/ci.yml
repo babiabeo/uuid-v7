@@ -59,6 +59,9 @@ jobs:
       - name: Install packages
         run: npx jsr add @cross/test @std/assert
 
+      - name: Add package.json
+        run: "echo '{ \"type\": \"module\" }' > package.json"
+
       - name: Run tests
         run: deno task test:node
 
