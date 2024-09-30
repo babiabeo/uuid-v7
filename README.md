@@ -4,6 +4,10 @@
 [![JSR Score](https://jsr.io/badges/@babia/uuid-v7/score)][jsr]
 [![CI](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml/badge.svg)](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml)
 
+> [!NOTE]
+> The `@std` library also has an unstable implementation of uuid v7.
+> See [`@std/uuid/unstable-v7`](https://jsr.io/@std/uuid/doc/unstable-v7/~).
+
 The `uuid-v7` package provides UUIDv7 generator and validator based on [RFC 9562][rfc].
 
 UUIDv7 features a time-ordered value field derived from the widely implemented
