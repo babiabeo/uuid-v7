@@ -1,21 +1,22 @@
 /**
- * Generator for
+ * Monotonic generator for
  * {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | RFC 9562 UUID v7}.
  *
  * ```ts
- * import { generate } from "@babia/uuid-v7/generate";
+ * import { monotonicGen } from "@babia/uuid-v7/monotonic";
  *
- * const u1 = generate();    // Using the current timestamp
- * const u2 = generate(123); // Using custom timestamp
+ * const u1 = monotonicGen();    // Using the current timestamp
+ * const u2 = monotonicGen(123); // Using custom timestamp
+
  * ```
  *
  * @module
  */
 
-import { stringify } from "./_stringify.ts";
+import { stringify } from "./_utils.ts";
 
 /**
- * Generates an {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | UUID v7}
+ * Generates a monotonically-increasing {@link https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-7 | UUID v7}
  * based on Unix timestamp.
  *
  * @param timestamp The custom timestamp to generate the UUID.
@@ -23,13 +24,13 @@ import { stringify } from "./_stringify.ts";
  *
  * @example Usage
  * ```ts
- * import { generate } from "@babia/uuid-v7";
+ * import { monotonicGen } from "@babia/uuid-v7/monotonic";
  *
- * const u1 = generate();    // Using the current timestamp
- * const u2 = generate(123); // Using custom timestamp
+ * const u1 = monotonicGen();    // Using the current timestamp
+ * const u2 = monotonicGen(123); // Using custom timestamp
  * ```
  */
-export function generate(timestamp?: number): string {
+export function monotonicGen(timestamp?: number): string {
   const uuid = new Uint8Array(16);
   const now = timestamp ?? Date.now();
   const rand = crypto.getRandomValues(new Uint8Array(10));
