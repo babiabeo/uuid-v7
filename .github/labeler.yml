@@ -1,6 +1,6 @@
 generator:
   - changed-files:
-    - any-glob-to-any-file: "src/generate.ts"
+    - any-glob-to-any-file: ["src/default.ts", src/monotonic.ts]
 
 validator:
   - changed-files:

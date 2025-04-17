@@ -42,14 +42,14 @@ bunx jsr add @babia/uuid-v7
 > Currently, this package contains 4 sub-modules:
 >
 > - `validate`: For validating uuids v7.
-> - `monotonic`: For genearating uuids monotonically.
-> - `generate`: Same as `monotonic` (not recommended at the moment).
+> - `monotonic`: For generating uuids monotonically.
+> - `generate`: Same as `monotonic` (**NOT RECOMMENDED** at the moment).
 > - `unstable-gen` **_(New API)_**: For generating normal uuid v7.
 
 > [!WARNING]
 > In the next versions, `unstable-gen` sub-module will be renamed to `generate`,
-> leading to a breaking change. That's why using `generate` sub-module is not
-> recommended at the moment.
+> leading to a breaking change. That's why using `generate` sub-module is NOT
+> RECOMMENDED at the moment.
 
 #### Example: Generate a new uuid
 
