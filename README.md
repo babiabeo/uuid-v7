@@ -38,25 +38,12 @@ pnpm dlx jsr add @babia/uuid-v7
 bunx jsr add @babia/uuid-v7
 ```
 
-> [!IMPORTANT]
-> Currently, this package contains 4 sub-modules:
->
-> - `validate`: For validating uuids v7.
-> - `monotonic`: For generating uuids monotonically.
-> - `generate`: Same as `monotonic` (**NOT RECOMMENDED** at the moment).
-> - `unstable-gen` **_(New API)_**: For generating normal uuid v7.
-
-> [!WARNING]
-> In the next versions, `unstable-gen` sub-module will be renamed to `generate`,
-> leading to a breaking change. That's why using `generate` sub-module is NOT
-> RECOMMENDED at the moment.
-
 #### Example: Generate a new uuid
 
 ##### Normal uuid
 
 ```ts
-import { generate } from "@babia/uuid-v7/unstable-gen";
+import { generate } from "@babia/uuid-v7/generate";
 
 generate(); // => 01912d68-01fe-7a03-a190-b5622fd831e9
 ```
@@ -84,4 +71,4 @@ This package is licensed for use under [MIT License](./LICENSE).
 
 ---
 
-###### Copyright &copy; 2024 David (babiabeo)
+###### Copyright &copy; 2025 David (babiabeo)

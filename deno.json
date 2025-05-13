@@ -4,9 +4,8 @@
   "exports": {
     ".": "./mod.ts",
     "./validate": "./src/validate.ts",
-    "./generate": "./src/monotonic.ts",
-    "./monotonic": "./src/monotonic.ts",
-    "./unstable-gen": "./src/default.ts"
+    "./generate": "./src/default.ts",
+    "./monotonic": "./src/monotonic.ts"
   },
   "imports": {
     "@cross/test": "jsr:@cross/test@^0.0.10",
