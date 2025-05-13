@@ -20,7 +20,7 @@ jobs:
         os:
           - ubuntu-22.04
           - windows-2022
-          - macOS-12
+          - macOS-13
 
     steps:
       - name: Setup repo
@@ -47,7 +47,7 @@ jobs:
         os:
           - ubuntu-22.04
           - windows-2022
-          - macOS-12
+          - macOS-13
 
     steps:
       - name: Setup repo
