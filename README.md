@@ -5,15 +5,19 @@
 [![CI](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml/badge.svg)](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml)
 
 > [!NOTE]
-> The `@std` library also has an unstable implementation of uuid v7. See
+> The `@std` library also has an unstable implementation of UUID v7. See
 > [`@std/uuid/unstable-v7`](https://jsr.io/@std/uuid/doc/unstable-v7/~).
 
-The `uuid-v7` package provides UUIDv7 generator and validator based on
+The `uuid-v7` package provides UUID v7 generator and validator based on
 [RFC 9562][rfc].
 
-UUIDv7 features a time-ordered value field derived from the widely implemented
+UUID v7 features a time-ordered value field derived from the widely implemented
 and well-known Unix Epoch timestamp source, the number of milliseconds since
 midnight 1 Jan 1970 UTC, leap seconds excluded.
+
+> [!IMPORTANT]
+> Since version 0.4.0, the `generate` sub-module no longer creates monotonic
+> UUIDs; instead, it generates standard ones.
 
 ## Quick start
 
@@ -38,9 +42,9 @@ pnpm dlx jsr add @babia/uuid-v7
 bunx jsr add @babia/uuid-v7
 ```
 
-#### Example: Generate a new uuid
+#### Example: Generate a new UUID
 
-##### Normal uuid
+##### Standard UUID
 
 ```ts
 import { generate } from "@babia/uuid-v7/generate";
@@ -48,7 +52,7 @@ import { generate } from "@babia/uuid-v7/generate";
 generate(); // => 01912d68-01fe-7a03-a190-b5622fd831e9
 ```
 
-##### Monotonically-increasing uuid
+##### Monotonically-increasing UUID
 
 ```ts
 import { monotonicGen } from "@babia/uuid-v7/monotonic";
