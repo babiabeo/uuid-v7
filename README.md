@@ -4,9 +4,8 @@
 [![JSR Score](https://jsr.io/badges/@babia/uuid-v7/score)][jsr]
 [![CI](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml/badge.svg)](https://github.com/babiabeo/uuid-v7/actions/workflows/ci.yml)
 
-> [!NOTE]
-> The `@std` library also has an unstable implementation of UUID v7. See
-> [`@std/uuid/unstable-v7`](https://jsr.io/@std/uuid/doc/unstable-v7/~).
+> [!WARNING]
+> Use [`@std/uuid/v7`](https://jsr.io/@std/uuid/doc/~/v7) instead.
 
 The `uuid-v7` package provides UUID v7 generator and validator based on
 [RFC 9562][rfc].
